@@ -1,0 +1,41 @@
+$schema: "1.0"
+name: "devbox-image-customization"
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
+
+tasks:
+  - name: winget
+    description: Install Python 3.12
+    parameters:
+      package: Python.Python.3.12
+  - name: winget
+    description: Install Git
+    parameters:
+      package: Git.Git
+  - name: winget
+    description: Install Git LFS
+    parameters:
+      package: GitHub.GitLFS
+  - name: winget
+    description: Install Docker Desktop
+    parameters:
+      package: Docker.DockerDesktop
+  - name: winget
+    description: Install Ubuntu (WSL)
+    parameters:
+      package: Canonical.Ubuntu
+
+userTasks:
+  - name: winget
+    description: Install NVM for Windows
+    parameters:
+      package: CoreyButler.NVMforWindows
+  - name: powershell
+    parameters:
+      command: |
+        # Install WSL2 distros
+        wsl --update;
+        wsl --install -d Ubuntu-22.04;
+
+        # Install VSCode extensions
+        code --install-extension ms-python.python;
+        code --install-extension ms-vscode-remote.remote-wsl;
