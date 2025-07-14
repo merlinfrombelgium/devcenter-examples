@@ -1,7 +1,6 @@
 $schema: "1.0"
 name: "devbox-image-customization"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-
 tasks:
   - name: winget
     description: Install Python 3.12
@@ -23,7 +22,6 @@ tasks:
     description: Install Ubuntu (WSL)
     parameters:
       package: Canonical.Ubuntu
-
 userTasks:
   - name: winget
     description: Install NVM for Windows
